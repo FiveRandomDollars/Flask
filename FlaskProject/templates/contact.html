@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>BASS PRO</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="../static/contactstyle.css">
+</head>
+<body>
+    
+    
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+        <a class="navbar-brand" href="#">UNESCO WORLD HERITAGE SITE <span class="glyphicon glyphicon-globe"></span></a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li><a href="/display">Home</a></li>
+        <li><a href="About.html">About</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li class="active"><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="jumbotron">
+  <div class="container text-center">
+    <h1>
+  CONTACT US
+</h1>      
+    <p>The United Nations Educational, Scientific and Cultural Organization Bass Pro Shop Pyramid</p>
+  </div>
+</div>
+  
+<div class="container-fluid bg-3 text-center">    
+  <h3 style = "text-shadow: 1px 1px 2px rgba(12, 12, 27, 0.5)">A Why Contact Bass Pro Shop Pyramid?</h3><br>
+  <div class="row">
+    <div class="col-sm-3">
+      <i style="color: #686870; text-align: center; font-family: Times New Roman, Times, serif; text-shadow: 1px 1px 2px #0C0C41;">UNESCO is absolutely committed to preserving and celebrating the long history and glory of the Bass Pro Shop Pyramid, the greatest construct in the great city of Memphis, Tennessee. Join out Mailing list today to recieve offers, information, articles and news about the Bass Pro Shop Pyramid today!</i>
+      <br><br>
+      <strong style = "text-shadow: 1px 1px 2px rgba(12, 12, 27, 0.5)">RECIEVE THE GREATNESS OF THE BASS PRO PYRAMID TODAY</strong>
+      <img src="" class="img-responsive" style="width:100%">
+    </div>
+ <div class="col-sm-3" style="height: 260px; overflow: hidden;">
+    <h3>Recieve Deals and Offers</h3>
+     <img src="https://asset20.ckassets.com/blog/wp-content/uploads/sites/5/2021/12/Coupon-Discount-and-Promo-Code-Explained-1024x512.jpg"
+         alt="Image"
+         style="width: 100%; height: 100%; object-fit: cover;"></div>
+
+<div class="col-sm-3" style="height: 260px; overflow: hidden;">
+    <h3>Hear what UNESCO is doing</h3>
+    <img src="https://www.un.org/sites/un2.un.org/files/styles/3x2-front-thumbnail/public/2025/06/ga-hall-essential-un.jpg"
+         alt="Image"
+         style="width: 100%; height: 100%; object-fit: cover;">
+</div>
+
+<div class="col-sm-3" style="height: 260px; overflow: hidden;">
+        <h3>Free Bass pro Pyramid postcard</h3>
+    <img src="https://th.bing.com/th/id/R.b4c62ed0eac5c8ed42f4ed6871e4b478?rik=5RY%2frsbIKKCjfg&pid=ImgRaw&r=0"
+         alt="Image"
+         style="width: 100%; height: 100%; object-fit: cover;">
+</div>
+
+</div> 
+</div>
+
+
+<div class="container-fluid bg-3 text-center row2">    
+  <div class="row">
+
+    <div class="col-sm-3">
+      <h2>Enter task here</h2>
+
+      <form action="/display" method="GET">
+        <label for="fname1">Task</label><br>
+        <input type="text" id="fname1" name="fname"><br>
+
+        <select name="classname" id="classname">
+        {% for class in classes %}
+          <option value="{{ class }}">{{ class }}</option>
+        {% endfor %}
+      </select>
+
+        <input type="submit" value="Confirm">
+      </form>
+    </div>
+
+    <div class="col-sm-3" style = "padding-top: 96px;">
+
+    <h2>Your Tasks</h2>
+      {% for task in tasks %}
+          <ul>{{ task }}</ul>
+      {% endfor %}
+
+    </div>
+
+    <div class="col-sm-3" style = "padding-top: 96px;">
+
+
+      <label for="Choose task">Choose a Task</label>
+      <br>
+     <form method="POST" action="/display">
+      <select name="remove" id="remove">
+        {% for task in tasks %}
+          <option value="{{ task }}">{{ task }}</option>
+        {% endfor %}
+      </select>
+        <br>
+
+        <button type="submit">Confirm</button>
+      </form>
+
+
+
+    </div>
+    
+     <div class="col-sm-3" style = "padding-top: 96px;">
+      <h2>Classes</h2>
+      <form action="/di" method="GET">
+        <label for="class">Add Class</label><br>
+        <input type="text" id="class+" name="class+"><br>
+
+
+
+        <input type="submit" value="Confirm">
+      </form>
+    </div>
+
+  </div>
+</div>
+
+<footer class="container-fluid text-center">
+  <p style = "color: white; text-align: left; font-family: Times New Roman, Times, serif;">Bass Pro Shops is a trademark of BPS Direct, LLC @UNESCOWORLDHERITAGESITEBASSPROSHOPPYRAMID COPYRIGHT @2015</p>
+</footer>
+
+</body>
+</html>
