@@ -13,23 +13,35 @@ def home():
 
 @app.route("/display", methods=['GET', 'POST'])
 def task():
-    if request.method == 'GET':
-        classes[request.args.get('classname')].append(request.args.get('fname'))
+    currentclass = request.args.get('classname', 'math').strip()
 
-    # return render_template('contact.html', tasks=tasks)
+
+    if request.method == 'GET':
+        fname = (request.args.get("fname") or "").strip()
+        newclass = request.args.get('newclass').strip()
+
+        if newclass:
+            classes[newclass].append("")
+            classes[newclass].remove("")
+
+        if fname:
+            classes[request.args.get('classname')].append(fname)
+
+
 
 
     if request.method == 'POST':
-        tasks.remove(request.form.get('remove'))
+        currentclass = request.form.get('sclass')
+        classes[currentclass].remove(request.form.get('remove'))
 
+    tasks = classes[currentclass]
     return render_template('contact.html', classes=classes, tasks=tasks)
 
+# @app.route("/di", methods=['GET', 'POST'])
+# def add():
 
-def add():
-    if request.method == 'GET':
-        newclass = request.args.get('class+')
-        classes[newclass].append("")
-        classes[newclass].remove("")
+
+
 
 
 if __name__ == "__main__":
