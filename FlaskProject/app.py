@@ -9,16 +9,17 @@ tasks = []
 
 @app.route("/")
 def home():
-    return render_template('contact.html')
+    currentclass = request.args.get('classname', 'math').strip()
+    return render_template('contact.html', classes=classes, tasks=classes[currentclass])
 
 @app.route("/display", methods=['GET', 'POST'])
 def task():
-    currentclass = request.args.get('classname', 'math').strip()
+    global currentclass
 
 
     if request.method == 'GET':
         fname = (request.args.get("fname") or "").strip()
-        newclass = request.args.get('newclass').strip()
+        newclass = (request.args.get('newclass') or '').strip()
 
         if newclass:
             classes[newclass].append("")
@@ -38,7 +39,6 @@ def task():
     return render_template('contact.html', classes=classes, tasks=tasks)
 
 # @app.route("/di", methods=['GET', 'POST'])
-# def add():
 
 
 
