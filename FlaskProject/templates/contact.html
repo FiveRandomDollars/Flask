@@ -99,7 +99,7 @@
 
     <div class="col-sm-3" style = "padding-top: 96px;">
 
-    <h2>Your Tasks</h2>
+    <h2>Your tasks</h2>
       {% for task in tasks %}
           <ul>{{ task }}</ul>
       {% endfor %}
@@ -109,12 +109,25 @@
     <div class="col-sm-3" style = "padding-top: 96px;">
 
 
-      <label for="Choose task">Choose a Task</label>
+      <label for="remove">Choose a Task</label>
       <br>
      <form method="POST" action="/display">
       <select name="remove" id="remove">
         {% for task in tasks %}
           <option value="{{ task }}">{{ task }}</option>
+        {% endfor %}
+      </select>
+        <br>
+
+        <button type="submit">Confirm</button>
+      </form>
+
+    <label for="removeclass">Remove class</label>
+      <br>
+     <form method="POST" action="/display">
+      <select name="removeclass" id="removeclass">
+        {% for class in classes %}
+          <option value="{{ class }}">{{ class }}</option>
         {% endfor %}
       </select>
         <br>
@@ -140,7 +153,7 @@
 
          <h2>Class Display</h2>
       <form action= /display method="POST">
-
+{#        <input type="hidden" name="action" value="display">#}
         <select name="sclass" id="sclass">
         {% for class in classes %}
           <option value="{{ class }}">{{ class }}</option>
