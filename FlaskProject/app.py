@@ -1,12 +1,19 @@
 from flask import Flask, render_template, request
 from collections import defaultdict
+import json
 
-classes = defaultdict(list)
-classes["math"].append("homework")
+
+with open("data.json", "r") as f:
+    data = json.load(f)
+
+classes = defaultdict(list, data)
+# classes = data
+# classes = json.loads(data)
+# classes["math"].append("homework")
 
 app = Flask(__name__)
 tasks = []
-currentclass = ''
+# currentclass = 'math'
 
 @app.route("/")
 def home():
@@ -47,7 +54,12 @@ def task():
             classes.pop(removeclass)
 
     tasks = classes[currentclass]
-    return render_template('contact.html', classes=classes, tasks=tasks)
+
+    save = json.dumps(classes, indent=4)
+    with open("data.json", "w") as f:
+        f.write(save)
+
+    return render_template('contact.html', classes=classes, tasks=tasks, currentclass = currentclass)
 
 # @app.route("/di", methods=['GET', 'POST'])
 
@@ -57,3 +69,4 @@ def task():
 
 if __name__ == "__main__":
     app.run(debug=True)
+
