@@ -100,6 +100,7 @@
     <div class="col-sm-3" style = "padding-top: 96px;">
 
     <h2>Your tasks</h2>
+    <h3>{{ currentclass }}</h3>
       {% for task in tasks %}
           <ul>{{ task }}</ul>
       {% endfor %}
@@ -152,6 +153,8 @@
       </form>
 
          <h2>Class Display</h2>
+
+
       <form action= /display method="POST">
 {#        <input type="hidden" name="action" value="display">#}
         <select name="sclass" id="sclass">
